@@ -1,0 +1,19 @@
+.formControl {
+  position: relative;
+  + p {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  &.error {
+    border: 1px solid #eb1717;
+    box-shadow: 0px 0px 4px rgba(235, 23, 23, 0.2);
+  }
+}
+
+.form__input_lable {
+  &.error {
+    color: red
+  }
+}
