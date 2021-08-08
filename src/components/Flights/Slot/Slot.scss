@@ -1,0 +1,64 @@
+.slot {
+  display: grid;
+  grid-template-columns: 20% 1fr 25%;
+  height: 100px;
+  align-items: center;
+  .logo {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    &__body {
+      height: 64px;
+      width: 64px;
+      background-image: url("../../../assets/slot/backgroungLogo.png"), url("../../../assets/slot/logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .info {
+    &__route {
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 22px;
+      img {
+        margin: 7px;
+      }
+    }
+    &__date {
+      color: #878787;
+      font-size: 14px;
+      line-height: 22px;
+      img {
+        margin: 11px;
+      }
+    }
+    &__company {
+      color: #878787;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+  .price {
+    display: grid;
+    justify-items: end;
+    grid-auto-flow: row;
+    row-gap: 20px;
+    padding-right: 20px;
+    &__favorite {
+    }
+    &__value {
+      color: #878787;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 22px;
+      span {
+        font-family: "Roboto";
+        padding-left: 8px;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 22px;
+        color: #424242;
+      }
+    }
+  }
+}

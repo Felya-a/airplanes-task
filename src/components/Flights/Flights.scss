@@ -1,0 +1,113 @@
+.flights {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.flights__body {
+  width: 680px;
+  height: 895px;
+  background: #ffffff;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: grid;
+  padding: 0 40px;
+  grid-template-rows: 1fr 1.5fr 3fr 1fr 10fr 1fr;
+}
+
+.flights__exit {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  span {
+    color: #1157a7;
+    padding: 0 10px;
+    font-size: 20px;
+    line-height: 13px;
+    z-index: 10;
+  }
+  img {
+    height: 18px;
+  }
+}
+
+.body {
+  &__header {
+    grid-row: 2;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    .header__info {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+      color: #424242;
+      img {
+        margin: 11px 15px;
+      }
+    }
+    .header__date {
+      input {
+        color: #1157a7;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 22px;
+        width: 195px;
+      }
+      .header__kalendar {
+        height: 20px;
+        width: 18px;
+        margin: 0 10px;
+      }
+    }
+  }
+  &__slaiderImages {
+    grid-row: 3;
+    overflow: hidden;
+    cursor: move;
+  }
+  &__favoriteCounter {
+    grid-row: 4;
+    color: #424242;
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 22px;
+    display: grid;
+    align-items: center;
+    padding-left: 10px;
+    .counter {
+      color: #1157a7;
+      font-family: "Roboto";
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+  &__flightsItems {
+    grid-row: 5;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  &-track {
+    // дорожка
+    background: white;
+  }
+  &-thumb {
+    // ползунок
+    background: #1157a7;
+    border-radius: 8px;
+    height: 100px;
+  }
+}
