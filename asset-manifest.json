@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/airplanes-task/static/css/main.5c178e93.chunk.css",
+    "main.js": "/airplanes-task/static/js/main.54d0c5cb.chunk.js",
+    "main.js.map": "/airplanes-task/static/js/main.54d0c5cb.chunk.js.map",
+    "runtime-main.js": "/airplanes-task/static/js/runtime-main.4a05cc7a.js",
+    "runtime-main.js.map": "/airplanes-task/static/js/runtime-main.4a05cc7a.js.map",
+    "static/css/2.4bd79e09.chunk.css": "/airplanes-task/static/css/2.4bd79e09.chunk.css",
+    "static/js/2.671a3f1d.chunk.js": "/airplanes-task/static/js/2.671a3f1d.chunk.js",
+    "static/js/2.671a3f1d.chunk.js.map": "/airplanes-task/static/js/2.671a3f1d.chunk.js.map",
+    "index.html": "/airplanes-task/index.html",
+    "static/css/2.4bd79e09.chunk.css.map": "/airplanes-task/static/css/2.4bd79e09.chunk.css.map",
+    "static/css/main.5c178e93.chunk.css.map": "/airplanes-task/static/css/main.5c178e93.chunk.css.map",
+    "static/js/2.671a3f1d.chunk.js.LICENSE.txt": "/airplanes-task/static/js/2.671a3f1d.chunk.js.LICENSE.txt",
+    "static/media/Rectangle 23.fd4dc267.png": "/airplanes-task/static/media/Rectangle 23.fd4dc267.png",
+    "static/media/Rectangle 24.1bf6a81c.png": "/airplanes-task/static/media/Rectangle 24.1bf6a81c.png",
+    "static/media/Rectangle 28.8121288e.png": "/airplanes-task/static/media/Rectangle 28.8121288e.png",
+    "static/media/logo.6ce24c58.svg": "/airplanes-task/static/media/logo.6ce24c58.svg",
+    "static/media/logout.f37a2d84.png": "/airplanes-task/static/media/logout.f37a2d84.png",
+    "static/media/index.scss": "/airplanes-task/static/media/mainBackgroundBlure.d2a545ed.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a05cc7a.js",
+    "static/css/2.4bd79e09.chunk.css",
+    "static/js/2.671a3f1d.chunk.js",
+    "static/css/main.5c178e93.chunk.css",
+    "static/js/main.54d0c5cb.chunk.js"
+  ]
+}
