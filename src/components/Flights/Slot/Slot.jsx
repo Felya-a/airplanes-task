@@ -1,21 +1,10 @@
 import './Slot.scss'
-import backgroundLogoIMG from '../../../assets/slot/backgroungLogo.png'
-import logoIMG from '../../../assets/slot/logo.png'
 import greyArrowIMG from '../../../assets/slot/greyArrow.png'
 import dashIMG from '../../../assets/slot/dash.png'
 import favoriteTrueIMG from '../../../assets/slot/favorite1.png'
 import favoriteFalseIMG from '../../../assets/slot/favorite0.png'
 
 const Slot = (props) => {
-  // {
-  //   from: 'Moscow (SVO)',
-  //   to: 'New York City (JFK)',
-  //   date: '28 June, 2020',
-  //   time: '14:50',
-  //   company: 'Aeroflot',
-  //   priсe: 23924,
-  //   favorite: true
-  // }
   return (
     <div className='slot'>
       <div className="slot__logo logo">
@@ -38,7 +27,7 @@ const Slot = (props) => {
         </div>
       </div>
       <div className="slot__price price">
-        <div className="price__favorite">
+        <div className="price__favorite" onClick={() => props.switchFavoriteFlights(props.id)}>
           {
             props.favorite
               ? <img src={favoriteTrueIMG} alt="" />

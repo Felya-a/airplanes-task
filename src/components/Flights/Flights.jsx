@@ -1,51 +1,43 @@
 import './Flights.scss'
 import Slot from './Slot/Slot'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Autoplay, A11y } from 'swiper'
+import SwiperCore, { Navigation, Autoplay, A11y } from 'swiper'
 import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
+import { connect } from 'react-redux'
+import { switchFavoriteFlights } from '../../redux/flightsReducer.js'
 // Import image
 import logoutIMG from '../../assets/logout.png'
 import greyArrowIMG from "../../assets/greyArrow.png"
-import slidePhoto1 from '../../assets/sliderPhoto/Rectangle 23.png'
-import slidePhoto2 from '../../assets/sliderPhoto/Rectangle 24.png'
-import slidePhoto3 from '../../assets/sliderPhoto/Rectangle 28.png'
+
+// нужно для правильного стартового отображения календаря
+function addZero(int) {
+  if (int < 10) int = '0' + int
+  return int
+}
 
 const Flights = (props) => {
-  SwiperCore.use([Autoplay, A11y])
+
+  SwiperCore.use([Navigation, Autoplay, A11y])
+
+  let counterFavorites = 0
+  props.flights.forEach(item => item.favorite && counterFavorites++)
+  let counterWord = String(counterFavorites)
+  counterWord = ['1'].includes(counterWord[counterWord.length - 1])
+    ? 'рейс'
+    : ['2', '3', '4'].includes(counterWord[counterWord.length - 1])
+      ? 'рейса'
+      : 'рейсов'
+
   const time = new Date()
-  const timeString = `${time.getFullYear()}-${time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1}-${time.getDate() < 10 ? '0' + time.getDate() : time.getDate()}`
+  const year = time.getFullYear()
+  const month = addZero(time.getMonth() + 1)
+  const date = addZero(time.getDate())
+  const timeString = `${year}-${month}-${date}`
+
   const from = 'SVO'
   const to = 'JFK'
-  let slidePhoto = [slidePhoto1, slidePhoto2, slidePhoto3]
-  slidePhoto = [...slidePhoto, ...slidePhoto, ...slidePhoto, ...slidePhoto]
-  const month = {
-    0: 'января',
-    1: 'февраля',
-    2: 'марта',
-    3: 'апреля',
-    4: 'мая',
-    5: 'июня',
-    6: 'июля',
-    7: 'августа',
-    8: 'сентября',
-    9: 'октября',
-    10: 'ноября',
-    11: 'декабря',
-  }
-  const mainFligths = [
-    {
-      from: 'Moscow (SVO)',
-      to: 'New York City (JFK)',
-      date: '28 June, 2020',
-      time: '14:50',
-      company: 'Aeroflot',
-      priсe: 23924,
-      favorite: false
-    }
-  ]
-  let flights = mainFligths.map(item => <Slot {...item} />)
-  flights = [...flights, ...flights, ...flights, ...flights, ...flights, ...flights, ...flights, ...flights, ...flights, ...flights]
+  let flights = props.flights.map(item => <Slot {...item} switchFavoriteFlights={props.switchFavoriteFlights} />)
 
   return (
     <div className='flights'>
@@ -64,16 +56,26 @@ const Flights = (props) => {
           <Swiper
             spaceBetween={100}
             slidesPerView={4}
-            navigation
             autoplay
+            navigation
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {slidePhoto.map(item => <SwiperSlide data-swiper-autoplay="2500"><img src={item} alt="" /></SwiperSlide>)}
+            {props.sliderPhoto.map(item =>
+              <SwiperSlide data-swiper-autoplay="2500" >
+                <img src={item} alt="" />
+              </SwiperSlide>
+            )}
           </Swiper>
         </div>
         <div className="body__favoriteCounter">
-          <span>Добавлено в Избранное: <span className="counter">{123}</span> рейсов</span>
+          <span>
+            Добавлено в Избранное:
+            <span className="counter">
+              {counterFavorites}
+            </span>
+            {counterWord}
+          </span>
         </div>
         <div className="body__flightsItems">
           {flights}
@@ -89,4 +91,9 @@ const Flights = (props) => {
   )
 }
 
-export default Flights
+const mapStateToProps = (state) => ({
+  flights: state.flightsReducer.flights,
+  sliderPhoto: state.flightsReducer.sliderPhoto,
+})
+
+export default connect(mapStateToProps, { switchFavoriteFlights })(Flights)

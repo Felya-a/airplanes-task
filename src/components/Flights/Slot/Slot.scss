@@ -45,6 +45,7 @@
     row-gap: 20px;
     padding-right: 20px;
     &__favorite {
+      cursor: pointer;
     }
     &__value {
       color: #878787;

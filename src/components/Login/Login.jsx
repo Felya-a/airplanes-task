@@ -5,7 +5,6 @@ import { emailValid, passwordValid, required } from '../../utils/validators/vali
 import { useHistory } from 'react-router-dom'
 
 const LoginForm = (props) => {
-  const history = useHistory()
   return (
     <form onSubmit={props.handleSubmit} className='loginForm'>
       <div className="loginForm__input_login">
@@ -16,7 +15,7 @@ const LoginForm = (props) => {
           label="Логин:"
           title='Enter the correct email address'
           component={Input}
-          validate={[emailValid]}
+          validate={[required, emailValid]}
         />
       </div>
       <div className="loginForm__input_password">
@@ -26,11 +25,11 @@ const LoginForm = (props) => {
           name='password'
           label='Пароль:'
           component={Input}
-          validate={[passwordValid]}
+          validate={[required, passwordValid]}
           title='Enter only in Latin and at least 8 characters'
         />
       </div>
-      <button className='login__button' onClick={() => history.push('/flights')}>Войти</button>
+      <button className='login__button'>Войти</button>
     </form>
   )
 }
@@ -39,9 +38,10 @@ const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
 
 const Login = (props) => {
+  const history = useHistory()
 
   const onSubmit = (formData) => {
-    console.log(formData)
+    history.push('/flights')
   }
 
   return (
