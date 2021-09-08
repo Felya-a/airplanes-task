@@ -58,8 +58,7 @@ const Flights = (props) => {
             slidesPerView={4}
             autoplay
             navigation
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            loop // бесконечная прокрутка
           >
             {props.sliderPhoto.map(item =>
               <SwiperSlide data-swiper-autoplay="2500" >

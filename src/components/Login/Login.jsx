@@ -14,6 +14,7 @@ const LoginForm = (props) => {
           name='login'
           label="Логин:"
           title='Enter the correct email address'
+          placeholder='Any valid email'
           component={Input}
           validate={[required, emailValid]}
         />
@@ -24,6 +25,7 @@ const LoginForm = (props) => {
           id='password'
           name='password'
           label='Пароль:'
+          placeholder='Any password longer 8 symbols'
           component={Input}
           validate={[required, passwordValid]}
           title='Enter only in Latin and at least 8 characters'
